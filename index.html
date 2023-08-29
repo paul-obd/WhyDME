@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul's Secrets</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+    <section class="container">
+        <div class="content">
+            <h1>Why Dating Me?</h1>
+            <p>Scroll down to Know the 3 REASONS WHY</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="content">
+            <h1>1- PERSONALITY</h1>
+            <p>"With a personality that shines as bright as a lucky star, I bring the magic that can make your dreams come true. Imagine beautiful dresses, sparkling diamonds, and stunning jewelry becoming a part of your world, all thanks to the wonderful personality that I have." ~Paul Obeid</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="content">
+            <h1>2- BIG HEART</h1>
+            <p>"My BIG HEART can love you until it makes your heart race and your soul dance. Get ready for a dose of affection that'll make you feel amazing!" ~Paul Obeid</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="content">
+            <h1>3- SUPER COOL</h1>
+            <p>"Just like water, I've got the superpower of being effortlessly cool and flexible. I can adapt to any situation, and I bring that chill vibe that turns moments into pure awesomeness."</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="content">
+            <h1>WHAT DO YOU NEED MORE!!</h1>
+            <p>"Call me now on +961 76 362 977"</p>
+        </div>
+    </section>
+
+    <div id="set-height"></div>
+
+    <video id="v0" tabindex="0" , autobuffer preload>
+        <source type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' src="myvideo.mp4">
+    </video>
+
+    <script src="sticky.js"></script>
+    <script>
+        
+        enterView({
+            selector: 'section',
+            enter: function(el) {
+                el.classList.add('entered');
+            }
+        })
+        var frameNumber = 0, // start video at frame 0
+            // lower numbers = faster playback
+            playbackConst = 550,
+            // get page height from video duration
+            setHeight = document.getElementById("set-height"),
+            // select video element         
+            vid = document.getElementById('v0');
+        // var vid = $('#v0')[0]; // jquery option
+
+        // dynamically set the page height according to video length
+        vid.addEventListener('loadedmetadata', function () {
+            setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
+        });
+
+
+        // Use requestAnimationFrame for smooth playback
+        function scrollPlay() {
+            var frameNumber = window.pageYOffset / playbackConst;
+            vid.currentTime = frameNumber;
+            window.requestAnimationFrame(scrollPlay);
+        }
+
+        window.requestAnimationFrame(scrollPlay);
+
+    </script>
+
+
+</body>
+
+</html>
