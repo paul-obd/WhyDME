@@ -10,6 +10,11 @@
 
 <body>
 
+    <div id="loading-screen">
+        <div class="loader"></div>
+    </div>
+
+
     <section class="container">
         <div class="content">
             <h1>Why Dating Me?</h1>
@@ -20,21 +25,25 @@
     <section class="container">
         <div class="content">
             <h1>1- PERSONALITY</h1>
-            <p>"With a personality that shines as bright as a lucky star, I bring the magic that can make your dreams come true. Imagine beautiful dresses, sparkling diamonds, and stunning jewelry becoming a part of your world, all thanks to the wonderful personality that I have." ~Paul Obeid</p>
+            <p>"With a personality that shines as bright as a lucky star, I bring the magic that can make your dreams
+                come true. Imagine beautiful dresses, sparkling diamonds, and stunning jewelry becoming a part of your
+                world, all thanks to the wonderful personality that I have." ~Paul Obeid</p>
         </div>
     </section>
 
     <section class="container">
         <div class="content">
             <h1>2- BIG HEART</h1>
-            <p>"My BIG HEART can love you until it makes your heart race and your soul dance. Get ready for a dose of affection that'll make you feel amazing!" ~Paul Obeid</p>
+            <p>"My BIG HEART can love you until it makes your heart race and your soul dance. Get ready for a dose of
+                affection that'll make you feel amazing!" ~Paul Obeid</p>
         </div>
     </section>
 
     <section class="container">
         <div class="content">
             <h1>3- SUPER COOL</h1>
-            <p>"Just like water, I've got the superpower of being effortlessly cool and flexible. I can adapt to any situation, and I bring that chill vibe that turns moments into pure awesomeness."</p>
+            <p>"Just like water, I've got the superpower of being effortlessly cool and flexible. I can adapt to any
+                situation, and I bring that chill vibe that turns moments into pure awesomeness."</p>
         </div>
     </section>
 
@@ -53,13 +62,14 @@
 
     <script src="sticky.js"></script>
     <script>
-        
+
         enterView({
             selector: 'section',
-            enter: function(el) {
+            enter: function (el) {
                 el.classList.add('entered');
             }
         })
+        document.body.classList.add('loading');
         var frameNumber = 0, // start video at frame 0
             // lower numbers = faster playback
             playbackConst = 550,
@@ -72,6 +82,9 @@
         // dynamically set the page height according to video length
         vid.addEventListener('loadedmetadata', function () {
             setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
+            // Remove the loading screen and show the video
+            document.getElementById('loading-screen').style.display = 'none';
+            document.body.classList.remove('loading');
         });
 
 
